@@ -4,3 +4,7 @@
 #goianapolis:hover{
     color: var(--wood-lt)
 }
+
+.hero-inner p{
+    margin-bottom: 1.3rem;
+}

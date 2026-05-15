@@ -1,10 +1,10 @@
 :root {
     --cream: #f5f0e8;
     --dark: #1a1612;
-    --wood: #8b5e3c;
+    --wood: #59371d;
     --wood-lt: #26bd2d;
     --accent: #218d2f;
-    --muted: #7a7060;
+    --muted: #413728;
     --border: #ddd5c0;
 }
 
@@ -116,7 +116,7 @@ body {
 .hero-inner {
     position: relative;
     z-index: 1;
-    padding: 4rem 2rem;
+    padding: 0 2rem 2rem;
     max-width: 700px;
 }
 
@@ -296,6 +296,15 @@ hr.wood-rule {
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
+    overflow: hidden; /* ? adicione isso */
+}
+
+/* ? adicione esse bloco novo logo abaixo */
+.sobre-img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .sobre-img-accent {
