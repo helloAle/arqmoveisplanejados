@@ -1,0 +1,56 @@
+/* POPUP CONTATO */
+#form-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#form-popup-box {
+    background: var(--cream);
+    padding: 3rem 2.5rem;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    border-top: 3px solid var(--accent);
+}
+
+#popup-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#form-popup-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--dark);
+}
+
+#form-popup-box p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+#form-popup-box button {
+    background: var(--wood);
+    color: var(--cream);
+    border: none;
+    padding: 0.75rem 2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#form-popup-box button:hover {
+    background: var(--dark);
+}

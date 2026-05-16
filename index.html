@@ -12,8 +12,9 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href=".css/style.css">
-  <link rel="stylesheet" href=".css/hero.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/hero.css">
+  <link rel="stylesheet" href="./css/popup.css">
   <title>Arquimedes Móveis Planejados</title>
 </head>
 
@@ -246,16 +247,25 @@
             <p class="contato-info-title">Realize um orçamento</p>
             <p class="contato-info-sub mb-3">Preencha o formulário e retornamos em até 24 horas.</p>
 
-            <!-- Form de contato ? action aponta para formsubmit ou seu endpoint -->
             <form id="message-mail" action="https://formsubmit.co/arquimedesmoveisplanejados46@gmail.com" method="POST">
               <input type="text" name="name" placeholder="Seu nome" required>
               <input type="email" name="email" placeholder="Seu e-mail" required>
               <textarea name="message" placeholder="Conte-nos sobre seu projeto..." required></textarea>
-              <button type="submit">Enviar mensagem</button>
+              <button type="submit" id="btn-enviar">Enviar mensagem</button>
               <input type="hidden" name="_subject" value="Novo contato pelo site!">
               <input type="text" name="_honey" style="display:none">
               <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="about:blank"> <!-- evita redirect -->
             </form>
+          </div>
+          <div id="form-popup" style="display:none;">
+            <div id="form-popup-box">
+              <div id="popup-icon">✉️</div>
+              <h3>Mensagem enviada!</h3>
+              <p>Obrigado pelo contato. Em breve nossa equipe retornará com uma proposta feita especialmente para o seu
+                projeto.</p>
+              <button onclick="document.getElementById('form-popup').style.display='none'">Fechar</button>
+            </div>
           </div>
 
           <div>
@@ -362,6 +372,24 @@
     // fecha com ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') overlay.classList.remove('active');
+    });
+
+    document.getElementById('message-mail').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const form = this;
+      const data = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(() => {
+        form.reset();
+        document.getElementById('form-popup').style.display = 'flex';
+      }).catch(() => {
+        alert('Erro ao enviar. Tente pelo WhatsApp!');
+      });
     });
   </script>
 </body>
