@@ -33,12 +33,14 @@ body {
     padding: 0 10px;
     width: 8%;
     height: auto;
-    transition: width 0.3s ease; /* adicione isso */
+    transition: width 0.3s ease;
+    /* adicione isso */
 }
 
 /* estado "encolhido" */
 .navbar.scrolled #logo {
-    width: 5%; /* ou o valor que preferir */
+    width: 5%;
+    /* ou o valor que preferir */
 }
 
 /* ?? NAVBAR ???????????????????????????????????? */
@@ -93,7 +95,8 @@ body {
 .nav-link.active {
     color: var(--accent) !important;
 }
-.nav-link.active:hover{
+
+.nav-link.active:hover {
     color: var(--wood-lt) !important;
 }
 
@@ -116,6 +119,7 @@ body {
 section {
     padding: 6rem 0;
 }
+
 section.hero {
     padding: 2rem 0;
 }
@@ -308,6 +312,7 @@ hr.wood-rule {
     grid-column: span 2;
     grid-row: span 2;
 }
+
 .gallery-grid>*:nth-last-child(2) {
     grid-column: span 2;
     grid-row: span 2;
@@ -614,4 +619,29 @@ footer a:hover {
     .steps::before {
         display: none;
     }
+}
+
+/* LIGHTBOX */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+.lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 1px solid rgba(196, 154, 108, 0.2);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+    cursor: default;
 }

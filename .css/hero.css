@@ -125,15 +125,16 @@
     object-fit: cover;
     opacity: 0.55;
 }
-    
 
-#goianapolis{
+
+#goianapolis {
     color: var(--accent);
 }
-#goianapolis:hover{
+
+#goianapolis:hover {
     color: var(--wood-lt)
 }
 
-.hero-inner p{
+.hero-inner p {
     margin-bottom: 1.3rem;
 }
