@@ -6,6 +6,7 @@
     --accent: #218d2f;
     --muted: #413728;
     --border: #ddd5c0;
+    --logo: #42E961;
 }
 
 *,
@@ -25,6 +26,12 @@ body {
     background: var(--cream);
     color: var(--dark);
     font-weight: 300;
+}
+
+/* LOGOOOOOOOOOOOOOOOOOOOOOOOO */
+#logo{
+    /* padding: 0 10px; */
+    transform: scale(0.5);    
 }
 
 /* ?? NAVBAR ???????????????????????????????????? */
@@ -78,6 +85,9 @@ body {
 .nav-link:hover,
 .nav-link.active {
     color: var(--accent) !important;
+}
+.nav-link.active:hover{
+    color: var(--wood-lt) !important;
 }
 
 .nav-cta {
