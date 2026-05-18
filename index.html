@@ -60,7 +60,6 @@
       </div>
     </div>
     <div class="hero-deco">
-      <!-- Substitua pelo src da sua imagem -->
       <img src="./assets/img/loja001.jpeg" alt="Móveis planejado" class="hero-img-placeholder">
       <span class="hero-deco-label">Qualidade & Tradição</span>
     </div>
@@ -148,11 +147,6 @@
           <p class="card-text">Mesas de jantar, revestimentos e peças únicas em madeira maciça com design exclusivo sob
             encomenda.</p>
         </div>
-        <!-- <div class="card-item">
-            <span class="card-icon">🔧</span>
-            <h3 class="card-title">Reforma & Restauro</h3>
-            <p class="card-text">Restauramos móveis antigos e reformamos ambientes com cuidado, respeitando a história de cada peça.</p>
-          </div> -->
       </div>
     </div>
   </section>
@@ -207,11 +201,6 @@
           <p class="step-text">Entendemos seu espaço, estilo e necessidades em uma conversa na sua casa ou em nossa
             fábrica.</p>
         </div>
-        <!-- <div class="step">
-            <div class="step-num">02 — Projeto</div>
-            <h3 class="step-title">Design 3D</h3>
-            <p class="step-text">Desenvolvemos o projeto com renderização 3D para que você veja exatamente como ficará antes de produzir.</p>
-          </div> -->
         <div class="step">
           <div class="step-num">02 — Projeto</div>
           <h3 class="step-title">Projeto & Orçamento</h3>
@@ -243,7 +232,6 @@
       <h2 class="section-title">Entre em <em>contato</em></h2>
 
       <div class="contato-grid">
-        <!-- Coluna esquerda: form + WhatsApp -->
         <div class="contato-left">
           <div>
             <p class="contato-info-title">Realize um orçamento</p>
@@ -257,7 +245,7 @@
               <input type="hidden" name="_subject" value="Novo contato pelo site!">
               <input type="text" name="_honey" style="display:none">
               <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" value="about:blank"> <!-- evita redirect -->
+              <input type="hidden" name="_next" value="about:blank">
             </form>
           </div>
           <div id="form-popup" style="display:none;">
@@ -284,14 +272,12 @@
           </div>
         </div>
 
-        <!-- Coluna direita: mapa -->
         <div>
           <p class="contato-info-title">Nossa localização</p>
           <p class="contato-info-sub mb-3">Visite nossa loja e fábrica.</p>
 
           <div class="map-wrap">
             <div class="map-placeholder-label">
-              <!-- <div class="map-pin">??</div> -->
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1912.632852542949!2d-49.02191822397828!3d-16.512678287173397!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ebfa1b879c411%3A0xb4f3dea4d084938e!2sMarcenaria%20Arquimedes%20Moveis%20Planejados!5e0!3m2!1spt-BR!2sbr!4v1778778457118!5m2!1spt-BR!2sbr"
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
@@ -335,26 +321,23 @@
 
   <script>
     const navbar = document.querySelector('.navbar');
-
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
   </script>
 
   <!-- LIGHTBOX -->
   <div class="lightbox-overlay" id="lightbox">
+    <button id="lightbox-close" title="Fechar">✕</button>
     <img id="lightbox-img" src="" alt="">
   </div>
 
   <script>
-    // Lightbox
     const overlay = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
 
+    // Abre o lightbox ao clicar na imagem
     document.querySelectorAll('.gallery-cell img').forEach(img => {
       img.style.cursor = 'zoom-in';
       img.addEventListener('click', () => {
@@ -364,24 +347,28 @@
       });
     });
 
-    // fecha ao clicar no fundo
+    // Fecha ao clicar no botão X
+    lightboxClose.addEventListener('click', () => {
+      overlay.classList.remove('active');
+    });
+
+    // Fecha ao clicar no fundo
     overlay.addEventListener('click', (e) => {
-      if (e.target !== lightboxImg) {
+      if (e.target !== lightboxImg && e.target !== lightboxClose) {
         overlay.classList.remove('active');
       }
     });
 
-    // fecha com ESC
+    // Fecha com ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') overlay.classList.remove('active');
     });
 
+    // Envio do formulário
     document.getElementById('message-mail').addEventListener('submit', function (e) {
       e.preventDefault();
-
       const form = this;
       const data = new FormData(form);
-
       fetch(form.action, {
         method: 'POST',
         body: data,
